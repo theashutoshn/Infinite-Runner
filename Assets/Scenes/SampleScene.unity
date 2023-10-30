@@ -583,6 +583,7 @@ MonoBehaviour:
   - {fileID: 1773700659641425422, guid: a91c737190164a5458f67a3a8cd839c0, type: 3}
   - {fileID: 661225584083389919, guid: ab19dc904ecbcba49abaaf36322b0fd1, type: 3}
   - {fileID: 1137175764186602183, guid: b79ab3449a8093f429e3c1d62b9ff69d, type: 3}
+  _coinPrefab: {fileID: 1627960072031261084, guid: d79aa82de4c5dfc4384f6f3e31b9d63c, type: 3}
 --- !u!1 &2071736256
 GameObject:
   m_ObjectHideFlags: 0
