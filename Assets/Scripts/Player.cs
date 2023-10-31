@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private Rigidbody _rb;
+    
     private float _playerSpeed = 5f;
-    private float _jampForce = 5f;
+
+    private Rigidbody _rb;
+    [SerializeField] private float _jumpForce = 7.0f;
     private bool _isGrounded = false;
+    [SerializeField] private float _groundCheckDistance = 0.2f;
+    [SerializeField] private LayerMask _groundLayer;  // Assign the layer of the platforms in the inspector.
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        if (_rb == null)
+        {
+            Debug.LogError("Rigidbody not found on the player.");
+        }
     }
 
     // Update is called once per frame
@@ -27,31 +36,21 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(-1.8f, transform.position.y, transform.position.z);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && _isGrounded == false)
+        if (_isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-            PlayerJump();
+            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
         }
+
+        // Check if the player is grounded
+        _isGrounded = Physics.Raycast(transform.position, Vector3.down, _groundCheckDistance, _groundLayer);
+
     }
 
-    void PlayerJump()
+    private void OnDrawGizmos()
     {
-        _rb.AddForce(Vector3.up * _jampForce, ForceMode.Impulse);
-        _isGrounded = false;
+        // Visualize the ground check ray in the editor
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * _groundCheckDistance);
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            _isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            _isGrounded = false;
-        }
-    }
 }

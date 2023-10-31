@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 405705320}
   - component: {fileID: 405705324}
   - component: {fileID: 405705325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ Transform:
   m_GameObject: {fileID: 405705319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8, y: 0.181, z: -8}
+  m_LocalPosition: {x: -1.8, y: 0.146, z: -8}
   m_LocalScale: {x: 0.19, y: 0.19, z: 0.19}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -244,6 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f0402e30c69184486e45693b032e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _jumpForce: 5
+  _groundCheckDistance: 0.2
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!54 &405705325
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -253,7 +258,7 @@ Rigidbody:
   m_GameObject: {fileID: 405705319}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 9.81
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -598,7 +603,7 @@ GameObject:
   - component: {fileID: 2071736257}
   - component: {fileID: 2071736262}
   - component: {fileID: 2071736261}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Platform
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -715,7 +720,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
