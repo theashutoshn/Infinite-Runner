@@ -36,21 +36,46 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(-1.8f, transform.position.y, transform.position.z);
         }
 
-        if (_isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
-            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-        }
+        //if (_isGrounded && Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+        //}
 
         // Check if the player is grounded
-        _isGrounded = Physics.Raycast(transform.position, Vector3.down, _groundCheckDistance, _groundLayer);
+        //_isGrounded = Physics.Raycast(transform.position, Vector3.down, _groundCheckDistance, _groundLayer);
+
+        if(_isGrounded)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            }
+        }
+
 
     }
 
-    private void OnDrawGizmos()
+    //private void OnDrawGizmos()
+    //{
+    //    // Visualize the ground check ray in the editor
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawLine(transform.position, transform.position + Vector3.down * _groundCheckDistance);
+    //}
+    private void OnCollisionEnter(Collision other)
     {
-        // Visualize the ground check ray in the editor
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * _groundCheckDistance);
+        if (other.gameObject.tag == "Platform")
+        {
+            _isGrounded = true;
+        }
     }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Platform")
+        {
+            _isGrounded = false;
+        }
+    }
+
 
 }
