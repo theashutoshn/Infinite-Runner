@@ -5,9 +5,11 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     private float _coinSpeed = 4f;
+
+    private Player _player;
     void Start()
     {
-        
+        _player = FindAnyObjectByType<Player>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class Coin : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Debug.Log("Coin Collected");
+            _player.Score();
             Destroy(this.gameObject);
         }
     }

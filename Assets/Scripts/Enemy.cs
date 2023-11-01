@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     private float _damage;
     void Start()
     {
-        
+        _player = FindAnyObjectByType<Player>();
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            _player.TakeDamage(30);
+            _player.TakeDamage();
             
         }
     }

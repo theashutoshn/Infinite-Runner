@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _groundCheckDistance = 0.2f;
     [SerializeField] private LayerMask _groundLayer;  // Assign the layer of the platforms in the inspector.
 
-    public float playerHealth = 100;
-
+    public float playerLives = 3;
+    public float score = 0;
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -38,13 +38,6 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(-1.8f, transform.position.y, transform.position.z);
         }
 
-        //if (_isGrounded && Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
-        //}
-
-        // Check if the player is grounded
-        //_isGrounded = Physics.Raycast(transform.position, Vector3.down, _groundCheckDistance, _groundLayer);
 
         if(_isGrounded)
         {
@@ -57,12 +50,7 @@ public class Player : MonoBehaviour
 
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    // Visualize the ground check ray in the editor
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawLine(transform.position, transform.position + Vector3.down * _groundCheckDistance);
-    //}
+   
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Platform")
@@ -79,9 +67,18 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
-        playerHealth -= damage;
+        playerLives -- ;
+
+        if (playerLives < 1)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
+    public void Score()
+    {
+        score += 10;
+    }
 }
