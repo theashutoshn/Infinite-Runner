@@ -57,6 +57,12 @@ public class Player : MonoBehaviour
         {
             _isGrounded = true;
         }
+
+        if(other.gameObject.tag == "Heart")
+        {
+            Destroy(other.gameObject);
+            IncreaseLives();
+        }
     }
 
     private void OnCollisionExit(Collision other)
@@ -80,5 +86,10 @@ public class Player : MonoBehaviour
     public void Score()
     {
         score += 10;
+    }
+
+    public void IncreaseLives()
+    {
+        playerLives ++;
     }
 }
