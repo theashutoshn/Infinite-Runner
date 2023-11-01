@@ -6,6 +6,9 @@ public class Enemy : MonoBehaviour
 {
     
     private float _enemySpeed = 5f;
+
+    private Player _player;
+    private float _damage;
     void Start()
     {
         
@@ -21,5 +24,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            _player.TakeDamage(30);
+            
+        }
+    }
 }

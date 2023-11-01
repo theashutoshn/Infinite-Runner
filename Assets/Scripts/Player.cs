@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float _groundCheckDistance = 0.2f;
     [SerializeField] private LayerMask _groundLayer;  // Assign the layer of the platforms in the inspector.
 
+    public float playerHealth = 100;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -77,5 +79,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void TakeDamage(int damage)
+    {
+        playerHealth -= damage;
+    }
 
 }

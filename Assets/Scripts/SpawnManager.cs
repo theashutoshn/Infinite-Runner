@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (_stopSpawning == false)
         {
-            Vector3 coinSpawnPos = new Vector3(Random.Range(-1.66f, 1.66f), 0.514f, 8f);
+            Vector3 coinSpawnPos = new Vector3(Random.Range(-1.66f, 1.66f), 0.207f, 8f);
             Instantiate(_coinPrefab, coinSpawnPos, Quaternion.identity);
             yield return new WaitForSeconds(5f);
         }

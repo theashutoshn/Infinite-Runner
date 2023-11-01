@@ -7,6 +7,7 @@ public class Platform : MonoBehaviour
     private float _platformSpeed = 3f;
     private bool _stopPlatformSpawnner;
 
+    
     void Start()
     {
         

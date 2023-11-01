@@ -19,4 +19,13 @@ public class Coin : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            Debug.Log("Coin Collected");
+            Destroy(this.gameObject);
+        }
+    }
 }

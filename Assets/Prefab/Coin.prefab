@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7608001016095722086}
   - component: {fileID: 6081670780087220731}
   - component: {fileID: 8523249751259660200}
-  - component: {fileID: 8952891306942289448}
   - component: {fileID: 6230586956861204074}
+  - component: {fileID: 1323991929942505483}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1627960072031261084}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6009176, y: 0.30730683, z: -6.871076}
+  m_LocalPosition: {x: 0.066, y: 0.30730683, z: -4.921}
   m_LocalScale: {x: 0.33709, y: 0.33709, z: 0.097629845}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,8 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8952891306942289448
-SphereCollider:
+--- !u!114 &6230586956861204074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627960072031261084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01e05545cbe36ac4b9bcdec6fc3a78af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1323991929942505483
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -104,17 +116,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6230586956861204074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1627960072031261084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01e05545cbe36ac4b9bcdec6fc3a78af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 0.9999999, y: 0.9999999, z: 0.85496247}
+  m_Center: {x: 0, y: 0, z: -0.07621453}
