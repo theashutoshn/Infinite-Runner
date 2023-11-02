@@ -7,10 +7,21 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] _enemyPrefab;
     private bool _stopSpawning;
     public GameObject _coinPrefab;
+
+    public GameObject heartPrefab;
+    private bool _stopHeartSpawning;
+
+    private Player _player;
     void Start()
     {
+        _player = GameObject.FindWithTag("Player").GetComponent<Player>();
         StartCoroutine(EnemySpawner());
         StartCoroutine(CoinSpawner());
+        if (_player != null && _player.playerLives < 0)
+        {
+            StartCoroutine(HeartSpawner());
+        }
+
     }
 
     // Update is called once per frame
@@ -40,5 +51,14 @@ public class SpawnManager : MonoBehaviour
             
     }
 
-    
+    IEnumerator HeartSpawner()
+    {
+        while (_stopHeartSpawning == false)
+        {
+            Vector3 heartSpawnPos = new Vector3(Random.Range(-1.66f, 1.66f), 0.207f, 8f);
+            Instantiate(heartPrefab, heartSpawnPos, Quaternion.identity);
+            yield return new WaitForSeconds(5f);
+        }
+    }
+
 }

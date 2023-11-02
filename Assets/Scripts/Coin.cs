@@ -26,7 +26,7 @@ public class Coin : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("Coin Collected");
+            
             _player.Score();
             Destroy(this.gameObject);
         }
