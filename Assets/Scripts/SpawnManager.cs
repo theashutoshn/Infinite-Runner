@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (_stopSpawning == false)
         {
-            Vector3 enemySpawnPos = new Vector3(Random.Range(-1.66f, 1.66f), 0.514f, 8f);
+            Vector3 enemySpawnPos = new Vector3(Random.Range(-1.66f, 1.66f), 0.3f, 8f);
             Instantiate(_enemyPrefab[Random.Range(0,5)], enemySpawnPos, Quaternion.identity);
             yield return new WaitForSeconds(1f);
         }

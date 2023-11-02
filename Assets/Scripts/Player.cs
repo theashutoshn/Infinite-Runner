@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private float _playerSpeed = 5f;
 
     private Rigidbody _rb;
-    [SerializeField] private float _jumpForce = 7.0f;
+    [SerializeField] private float _jumpForce = 4.0f;
     private bool _isGrounded = false;
     [SerializeField] private float _groundCheckDistance = 0.2f;
     [SerializeField] private LayerMask _groundLayer;  // Assign the layer of the platforms in the inspector.
