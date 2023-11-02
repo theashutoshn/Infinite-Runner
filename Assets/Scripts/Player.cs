@@ -15,8 +15,16 @@ public class Player : MonoBehaviour
 
     public float playerLives = 3;
     public float score = 0;
+
+    private SpawnManager _spawnManager;
     void Start()
     {
+        _spawnManager = FindAnyObjectByType<SpawnManager>();
+        if(_spawnManager ==  null)
+        {
+            Debug.LogError("SpawnManager not found");
+        }
+
         _rb = GetComponent<Rigidbody>();
         if (_rb == null)
         {
@@ -76,6 +84,17 @@ public class Player : MonoBehaviour
     public void TakeDamage()
     {
         playerLives -- ;
+
+        if(playerLives <= 2)
+        {
+            _spawnManager.StartHeartSpawning();
+        }
+
+        if(playerLives > 2)
+        {
+            _spawnManager.StopHeartSpawning();
+            
+        }
 
         if (playerLives < 1)
         {

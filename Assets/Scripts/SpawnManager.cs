@@ -11,16 +11,13 @@ public class SpawnManager : MonoBehaviour
     public GameObject heartPrefab;
     private bool _stopHeartSpawning;
 
-    private Player _player;
+    
     void Start()
     {
-        _player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        
         StartCoroutine(EnemySpawner());
         StartCoroutine(CoinSpawner());
-        if (_player != null && _player.playerLives < 0)
-        {
-            StartCoroutine(HeartSpawner());
-        }
+        
 
     }
 
@@ -28,6 +25,19 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StartHeartSpawning()
+    {
+        if (!_stopHeartSpawning)
+        {
+            _stopHeartSpawning = false;
+            StartCoroutine(HeartSpawner());
+        }
+    }
+    public void StopHeartSpawning()
+    {
+         _stopHeartSpawning = true;
     }
 
     IEnumerator EnemySpawner()
