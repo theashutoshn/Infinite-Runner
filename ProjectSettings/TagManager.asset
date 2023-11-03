@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Heart
+  - Spawn Manager
   layers:
   - Default
   - TransparentFX

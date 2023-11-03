@@ -245,7 +245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 4
-  _groundCheckDistance: 0.2
   _groundLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -515,6 +514,7 @@ MonoBehaviour:
   - {fileID: 661225584083389919, guid: ab19dc904ecbcba49abaaf36322b0fd1, type: 3}
   - {fileID: 1137175764186602183, guid: b79ab3449a8093f429e3c1d62b9ff69d, type: 3}
   _coinPrefab: {fileID: 1627960072031261084, guid: d79aa82de4c5dfc4384f6f3e31b9d63c, type: 3}
+  heartPrefab: {fileID: 9084939610536471263, guid: 0330d2c010de6d044b6d48c54a925d4b, type: 3}
 --- !u!1 &2071736256
 GameObject:
   m_ObjectHideFlags: 0
