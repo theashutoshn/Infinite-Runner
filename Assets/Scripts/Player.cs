@@ -14,11 +14,16 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;  // Assign the layer of the platforms in the inspector.
 
     public float playerLives = 3;
-    public float score = 0;
-
+    private int _score = 0;
     private SpawnManager _spawnManager;
+
+
+    //UI
+    private UIManager _ui;
+
     void Start()
     {
+        _ui = GameObject.Find("Canvas").GetComponent<UIManager>();
         _spawnManager = FindAnyObjectByType<SpawnManager>();
         if(_spawnManager ==  null)
         {
@@ -104,7 +109,8 @@ public class Player : MonoBehaviour
 
     public void Score()
     {
-        score += 10;
+        _score += 10;
+        _ui.UpdateScore(_score);
     }
 
     public void IncreaseLives()
